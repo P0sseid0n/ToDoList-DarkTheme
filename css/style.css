@@ -1,0 +1,318 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Kufam', cursive;
+}
+
+html,body{
+    background-color: rgb(35,35,35);
+    height: 100%;
+    transition: filter 0.25s;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 4%;
+}
+
+.clear{
+    clear: both;
+}
+
+header{
+    background-color: rgb(45,45,45);
+    width: 100%;
+    min-height: 80px;
+    color: white;
+    /* border-radius: 0px 0px 10px 10px; */
+}
+
+header .container{
+    position: relative;
+}
+
+
+header .container > div:nth-of-type(1){
+    width: 50%;
+    float: left;
+    text-align: left;
+    margin-top: 20px;
+}
+
+header .container > div:nth-of-type(2){
+    width: 50%;
+    float: right;
+    text-align: right;
+    margin-top: 35px;
+}
+
+header i{
+    margin-top: 10px;
+    margin-bottom: 16px;
+    font-size: 64px;
+    color: rgb(100,100,100);
+    cursor: pointer;
+    display: none!important;
+}
+
+header h1{
+    /* padding-top: 20px; */
+    font-style: italic;
+    font-weight: 900;
+    font-size: 40px;
+    opacity: 0.87;
+}
+
+
+header a{
+    text-decoration: none;
+    color: rgb(0, 140, 255);
+    font-style: italic;
+}
+
+header a:hover{
+    text-decoration: underline;
+}
+
+add{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 4%;
+    right: 3%;
+    display: block;
+    background-color: rgb(0, 200, 230);
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+add i{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    opacity: 0.75;
+    z-index: 5;
+}
+
+#CreateDo{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 176px;
+    background-color: rgb(40,40,40);
+    z-index: 10;
+    text-align: center;
+    display: none;
+}
+
+#CreateDo > div:not(.container){
+    background-color: rgb(50,50,50);
+    color: white;
+    padding: 8px 0;
+    font-size: 20px;
+}
+
+#CreateDo .container{
+   margin-top: 32px;
+}
+
+
+#CreateDo input{
+    width: 80%;
+    line-height: 48px;
+    padding: 0 20px;
+    outline: 0;
+    background-color: rgb(245,245,245);
+    border: 1px solid rgb(100,100,100);
+    font-size: 20px;
+}
+
+#CreateDo button{
+    background-color: rgb(0, 200, 230);
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: white;
+    width: 50px;
+    height: 50px;
+    vertical-align: bottom;
+    margin-left: 8px;
+}
+
+#CreateDo button i{
+    font-size: 32px;
+}
+
+section{
+    color: rgb(245,245,245);
+    margin-top: 16px;
+}
+
+section h1#listavazia{
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+}
+
+section .line{
+    border-bottom: 2px solid rgb(45,45,45);
+    padding-top: 20px;
+    background-color: rgba(255,255,255,0);
+    transition: background-color 0.3s;
+}
+
+section .line:hover{
+    background-color: rgba(255,255,255,0.025);
+}
+
+section .container > div{
+    display: inline-block;
+}
+
+section .container > div:first-of-type{
+    user-select: none;
+    padding-right: 16px;
+    border-right: 2px solid rgb(50,50,50);
+    width: 32px;
+}
+
+section div.text{
+    /* border-left: 2px solid rgb(50,50,50); */
+    padding-left: 16px;
+    /* text-transform: uppercase; */
+    opacity: 0.87;
+}
+
+section div.text a{
+    color: white;
+}
+
+section div.edit{
+    margin-left: 10px;
+    width: 50%;
+    /* float: left; */
+    height: 30px;
+    position: relative;
+    top: -4px;
+}
+
+section div.edit input{
+    border: 0;
+    outline: 0;
+    background-color: rgb(155,155,155);
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+section div.buttons{
+    float: right;
+    width: 25%;
+}
+
+section div.buttons button{
+    background-color: rgba(255,255,255,0.025);
+    position: relative;
+    top: -12px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    outline: 0;
+    border: 0;
+    color: rgba(255,255,255,0.87);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    margin-right: 16px;
+}
+
+section div.buttons button:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+
+
+input[type='checkbox']{
+    display: none;
+    user-select: none;
+}
+
+
+input[type='checkbox']:checked ~ label i{
+    opacity: 1;
+}
+
+label{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgb(75, 75, 75);
+    display: block;
+    cursor: pointer;
+    position: relative;
+    top: -4px;
+}
+
+label i{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 20px;
+    transition: opacity 0.3s;
+}
+
+@media screen and (max-width: 568px){
+    #CreateDo input{
+        width: 90%;
+        margin-bottom: 8px;
+    }
+
+    #CreateDo{
+        height: 208px;
+    }
+
+    #CreateDo .container{
+        margin-top: 16px;
+     }
+}
+
+@media screen and (max-width: 500px){
+    header{
+        text-align: center;
+    }
+
+    header .container > div:not(.clear){
+        width: 100%;
+        text-align: center;
+    }
+
+    header .container > div:nth-of-type(2){
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    section div.edit{
+        width: calc(90% - 65px);
+    }
+
+    section div.buttons{
+        width: 100%;
+        float: none;
+        margin-top: 20px;
+    }
+
+    section div.buttons button{
+        
+        top: -8px;
+        left: -4px;
+    }
+}
