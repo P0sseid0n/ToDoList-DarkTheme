@@ -99,10 +99,14 @@ $('input[type="checkbox"]').click(function(){
 
 function VerificarFrase (frase){
     let Tratament = frase
+    
+    console.log()
+    while(Tratament.indexOf('>') >= 0 || Tratament.indexOf('<') >= 0){
+        Tratament = Tratament.replace('<','&lt;')
+        Tratament = Tratament.replace('>','&gt;')
 
-    Tratament = Tratament.replace('<','')
-    Tratament = Tratament.replace('>','')
-
+    }
+    
     Tratament = ProcurarLink(Tratament)
     return Tratament
 }
