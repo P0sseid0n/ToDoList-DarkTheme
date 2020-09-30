@@ -1,17 +1,4 @@
-let Tarefas = {
-    // 0: {nome:"Criar Lista De Tarefa", check:true,},
-    // 1: {nome:'Mudar Header', check: true},
-    // 2: {nome:'Remover Tags', check: true},
-    // 3: {nome:'Arrumar Links', check: true},
-    // 4: {nome:'Mudar Checkbox', check: true},
-    // 5: {nome:'Animar CreateDo', check: true},
-    // 6: {nome:'Adicionar Opção De Mudar Tema', check:true},
-    // 7: {nome:'Arrumar problema ao duplicar tarefa', check:true},
-    // 8: {nome:'Colocar Opções Na Lista', check:true},
-    // 9: {nome:'Salvar com local storage', check:false},
-    // 10: {nome:'Adicionar titulo de lista vazia', check:false},
-    // 11: {nome:'Finalizar colando no ar', check:false}
-}
+let Tarefas = {}
 
 LocalSave()
 
@@ -19,7 +6,6 @@ $('add').click(function(e){
     e.stopPropagation()
     $('#CreateDo').slideDown()
 })
-// console.log(VerificarFrase('<h1></h1>'))
 $('#CreateDo button').click(function(){
     Tarefas[(Object.keys(Tarefas).length)] = {nome: VerificarFrase($('#CreateDo input').val()), check: false}
     CreateDo()
@@ -134,7 +120,6 @@ function ConsertarLink(l){
     return Link
 }
 
-//Pego da internet
 function isUrl(s) {
     var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
     return regexp.test(s);
@@ -146,7 +131,6 @@ $('header i').click(function(){
     if(DarkMode){
         DarkMode = false
         $('header a').css('filter','invert(0%)')
-        // $('label').css('filter','invert(0%)')
         $('body').css('filter','invert(0%)')
         $('input').css('filter','invert(0%)')
         $('button').css('filter','invert(0%)')
@@ -156,7 +140,6 @@ $('header i').click(function(){
     else{
         DarkMode = true
         $('header a').css('filter','invert(100%)')
-        // $('label').css('filter','invert(100%)')
         $('body').css('filter','invert(100%)')
         $('input').css('filter','invert(100%)')
         $('button').css('filter','invert(100%)')
@@ -170,16 +153,13 @@ $('header i').click(function(){
 
 let editar = true
 $('section div.buttons button:first-of-type').click(function(){
-    // $('section div.text').hide()
     let CurrentId = $(this).parent().attr('id').substring(7)
     if($(`#buttons${CurrentId} button:first-of-type`).html() == '<i class="fas fa-pencil-alt"></i>'){
         editar = true
     }
     else{
         editar = false
-        // Tarefas[$(`#text${CurrentId}`).text()] = Tarefas[$(`#edit${CurrentId} input`).val('')]
         Tarefas[CurrentId]['nome'] = VerificarFrase($(`#edit${CurrentId} input`).val())
-        // Tarefas[$(`#edit${CurrentId} input`).val()] = Tarefas[$(`#text${CurrentId}`).text()]
         CreateDo()
     }
 
@@ -198,16 +178,13 @@ $('section div.buttons button:first-of-type').click(function(){
 })
 
 $('body').on('click','section div.buttons button:first-of-type', function(){
-        // $('section div.text').hide()
         let CurrentId = $(this).parent().attr('id').substring(7)
         if($(`#buttons${CurrentId} button`).html() == '<i class="fas fa-pencil-alt"></i>'){
             editar = true
         }
         else{
             editar = false
-            // Tarefas[$(`#text${CurrentId}`).text()] = Tarefas[$(`#edit${CurrentId} input`).val('')]
             Tarefas[CurrentId]['nome'] = VerificarFrase($(`#edit${CurrentId} input`).val())
-            // Tarefas[$(`#edit${CurrentId} input`).val()] = Tarefas[$(`#text${CurrentId}`).text()]
             CreateDo()
 
         }
